@@ -1,6 +1,4 @@
-# this repo contains files in the 'src' folder:
-# you should create a folder called 'Photos' in the same folder of 'src' (to store photos of prisoners)
-
+# this repo contains files in the 'src' folder
 # Language version: Java 8 (meaning Features above Java 8 shall not be used)
 # Database: MariaDB
 
