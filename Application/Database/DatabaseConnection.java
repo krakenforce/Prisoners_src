@@ -24,6 +24,7 @@ public class DatabaseConnection {
             // format example: "jdbc:mariadb://localhost:3306/DB?user=root&password=myPassword"
             conn = DriverManager.getConnection("jdbc:" + DB + "://" +  DB_HOST + ":" + PORT + "/" + DB_NAME
             + "?user=" + DB_USER + "&password=" + DB_PASSWORD);
+            System.out.println("Connect successful");
 
         } catch (SQLException e) {
             e.printStackTrace();
