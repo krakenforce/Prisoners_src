@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="434.0" prefWidth="543.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller.LoginUiController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="509.0">
+         <children>
+            <ImageView fitHeight="181.0" fitWidth="488.0" layoutX="11.0" layoutY="10.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../Photos/Other/960x0.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="61.0" layoutY="129.0" prefHeight="271.0" prefWidth="421.0" styleClass="cardPane">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="75.0" layoutX="173.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/Other/police-officer-18-774599.png" />
+               </image>
+            </ImageView>
+            
+            <Hyperlink layoutX="150.0" layoutY="231.0" text="Forget password?" />
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="27.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/Other/avatar-icon-png-7.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="26.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/Other/lock-1692127-1439986.png" />
+               </image>
+            </ImageView>
+            <CheckBox fx:id="cbShowPW" layoutX="51.0" layoutY="163.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="17.0" prefWidth="110.0" text="Show password" textFill="#208bb9" />
+            <TextField layoutX="62.0" layoutY="83.0" prefHeight="25.0" prefWidth="292.0" promptText="Username">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <PasswordField fx:id="pfPW" layoutX="62.0" layoutY="123.0" prefHeight="25.0" prefWidth="292.0" promptText="Password">
+               <font>
+                  <Font size="13.0" />
+               </font></PasswordField>
+            <Button layoutX="281.0" layoutY="168.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="74.0" styleClass="confirmBtn" stylesheets="@style.css" text="Login" />
+            <Label layoutX="25.0" layoutY="202.0" prefHeight="17.0" prefWidth="187.0" text="Thông báo lỗi ở đây" />
+            <TextField fx:id="tfShowPW" disable="true" layoutX="62.0" layoutY="123.0" prefHeight="29.0" prefWidth="292.0">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

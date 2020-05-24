@@ -1,0 +1,72 @@
+.root{
+    -fx-background-color: white;
+}
+
+.cardPane{
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: black;
+    -fx-border-radius: 8px;
+}
+.topPane{
+    -fx-background-color: #3196DE;
+}
+.loginButton{
+    -fx-background-color: #3196DE;
+    -fx-text-fill: white;
+}
+.cancelButton{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+.adminMainPane{
+    -fx-background-color: #DDDDDD;
+}
+.contentPane{
+    -fx-background-color: #1f1f2e;
+    -fx-text-fill: white;
+}
+.ButtonPane{
+    -fx-background-color: #1f1f2e;
+}
+.adminTopPane{
+    -fx-background-color: #3196DE;
+}
+.ButtonPane:hover{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+.signOutBtn{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+.confirmBtn{
+    -fx-background-color: #3196DE;
+    -fx-text-fill: white;
+}
+.confirmBtn:hover{
+    -fx-background-color: green;
+}
+.generatePWBtn{
+    -fx-background-color: yellow;
+    -fx-text-fill: black;
+}
+.generatePWBtn:hover{
+    -fx-background-color: orange;
+}
+.showPW{
+    -fx-text-fill: #3196DE;
+}
+.listPane{
+    -fx-background-color: darkgrey;
+    -fx-border-radius: 8px;
+}
+.imageViewBorder{
+    -fx-border-color: #1f1f2e;
+    -fx-border-radius: 8px;
+}
+.menuItem{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+
+}
