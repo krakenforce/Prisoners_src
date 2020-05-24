@@ -1,6 +1,8 @@
 package Application.Database;
 
 import Application.Models.User;
+import Application.ResetPWCallback;
+import javafx.application.Platform;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -45,7 +47,7 @@ public class UserUtils {
             }
         } else {
             // username or password is not correct.
-           error = 2;
+            error = 2;
         }
         return error;
     }
@@ -126,9 +128,9 @@ public class UserUtils {
             if (type == 1) {
                 job = "admin";
             }
-            String m = "Welcome to KRAKEN FORCE PRISON, new "+ job + "!\nBelow are your account details:\n\nYOUR EMPLOYEE CODE: " + employee_code +
+            String m = "Welcome to KRAKEN FORCE PRISON, new " + job + "!\nBelow are your account details:\n\nYOUR EMPLOYEE CODE: " + employee_code +
                     "\nYOUR USERNAME: " + username + "\nYOUR PASSWORD: " + pw + " (You should change your password after login)" +
-                     "\n\nThis prison is full of dangerous criminals," +
+                    "\n\nThis prison is full of dangerous criminals," +
                     " I hope you survive your first month, uwahahaha!\n\nGood luck,\nPrison Manager.";
             sendMessageToEmail(m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
             return true;
@@ -257,6 +259,9 @@ public class UserUtils {
     private boolean checkEmail(String username, String email) {
         email = email.trim();
         User u = findUser(username);
+        if (u == null) {
+            return false;
+        }
         if (email.equals(u.getEmail())) {
             return true;
         }
@@ -264,20 +269,34 @@ public class UserUtils {
     }
 
     // reset user's password
-    public void resetPassword(String username, String email) {
+    public int resetPassword(String username, String email, ResetPWCallback cb) {
+        int error = 0;
         if (checkEmail(username, email)) {
             String new_password = HashingUtils.generateRandomPassword(6);
 
             if (setNewPassword(username, new_password.toCharArray())) {
                 // send them the password
                 String m = "Your new password is : " + new_password;
-                sendMessageToEmail(m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
+
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        cb.callbefore();
+                        sendMessageToEmail(m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
+                        cb.callback();
+                    }
+                });
+                t.start();
 
             } else {
-                System.out.println("Failed.");
+                // database error resetting password
+                error = 2;
             }
+        } else {
+            // username and email dont match!
+            error = 1;
         }
-
+        return error;
     }
 
     public String generateEmployeeCode() throws SQLException {
