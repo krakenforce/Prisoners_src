@@ -33,7 +33,7 @@
                </image>
             </ImageView>
             
-            <Hyperlink fx:id="hlForgetPW" layoutX="150.0" layoutY="231.0" onAction="#forgetPW" text="Forget password?" />
+            <Hyperlink fx:id="hlForgetPW" layoutX="135.0" layoutY="231.0" onAction="#forgetPW" text="Forget password?" />
             <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="27.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Photos/Other/avatar-icon-png-7.png" />
@@ -44,18 +44,19 @@
                   <Image url="@../Photos/Other/lock-1692127-1439986.png" />
                </image>
             </ImageView>
-            <CheckBox fx:id="cbShowPW" layoutX="51.0" layoutY="163.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="17.0" prefWidth="110.0" text="Show password" textFill="#208bb9" />
+            <CheckBox fx:id="cbShowPW" layoutX="62.0" layoutY="163.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="17.0" text="Show password" textFill="#208bb9" />
             <TextField fx:id="tfUsername" layoutX="62.0" layoutY="83.0" prefHeight="25.0" prefWidth="292.0" promptText="Username">
                <font>
                   <Font size="13.0" />
                </font></TextField>
             <Button fx:id="btnLogin" layoutX="281.0" layoutY="168.0" mnemonicParsing="false" onAction="#logIn" prefHeight="34.0" prefWidth="74.0" styleClass="confirmBtn" stylesheets="@style.css" text="Login" />
-            <Label fx:id="prompt" layoutX="25.0" layoutY="202.0" prefHeight="17.0"  text="Wellcome to Kraken's Prison Inc." />
+            <Label fx:id="prompt" layoutX="30" layoutY="202.0" prefHeight="17.0"  text="Welcome to Kraken's Prison Inc." />
             <TextField fx:id="tfShowPW" layoutX="62.0" layoutY="122.0" prefHeight="29.0" prefWidth="292.0" promptText="Password">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
+            <Label fx:id="pwLabel" visible="false" text="_Password" mnemonicParsing="true"/>
             <PasswordField fx:id="pfPW" layoutX="62.0" layoutY="123.0" prefHeight="25.0" prefWidth="292.0" promptText="Password">
                <font>
                   <Font size="13.0" />

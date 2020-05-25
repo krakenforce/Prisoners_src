@@ -10,6 +10,11 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Application.Controller.AdminController"
             prefHeight="400.0" prefWidth="600.0">
+            <HBox>
 
-            <Button fx:id="logout" onAction="#logOut" text="logout"></Button>
+                <Button onAction="#logOut" text="logout"></Button>
+                <Button onAction="#changePassword" text="change password"></Button>
+
+            </HBox>
+
 </AnchorPane>

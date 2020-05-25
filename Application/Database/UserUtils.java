@@ -1,8 +1,6 @@
 package Application.Database;
 
 import Application.Models.User;
-import Application.ResetPWCallback;
-import javafx.application.Platform;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -132,7 +130,7 @@ public class UserUtils {
                     "\nYOUR USERNAME: " + username + "\nYOUR PASSWORD: " + pw + " (You should change your password after login)" +
                     "\n\nThis prison is full of dangerous criminals," +
                     " I hope you survive your first month, uwahahaha!\n\nGood luck,\nPrison Manager.";
-            sendMessageToEmail(m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
+            sendMessageToEmail("Welcome to Kraken Prison!",m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
             return true;
 
         } catch (SQLException e) {
@@ -170,7 +168,7 @@ public class UserUtils {
 
     // send message to email using Google SMTP SERVER. We need a google account to send the message.
     // set the user and password of that account to the SYSTEM VARIABLE "MAIL_USER" and "MAIL_PW"
-    public void sendMessageToEmail(String message, String to_email, String from_email, String from_email_password) {
+    public void sendMessageToEmail(String title, String message, String to_email, String from_email, String from_email_password) {
         String host = "smtp.gmail.com";
 
         Properties p = System.getProperties();
@@ -189,7 +187,7 @@ public class UserUtils {
             m.setFrom(new InternetAddress(from_email));
             m.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 
-            m.setSubject("Your Account Info");
+            m.setSubject(title);
             m.setText(message + "\n");
 
             //send email:
@@ -269,7 +267,7 @@ public class UserUtils {
     }
 
     // reset user's password
-    public int resetPassword(String username, String email, ResetPWCallback cb) {
+    public int resetPassword(String username, String email) {
         int error = 0;
         if (checkEmail(username, email)) {
             String new_password = HashingUtils.generateRandomPassword(6);
@@ -278,15 +276,7 @@ public class UserUtils {
                 // send them the password
                 String m = "Your new password is : " + new_password;
 
-                Thread t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        cb.callbefore();
-                        sendMessageToEmail(m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
-                        cb.callback();
-                    }
-                });
-                t.start();
+                sendMessageToEmail("Your New Password" , m, email, System.getenv("MAIL_USER"), System.getenv("MAIL_PW"));
 
             } else {
                 // database error resetting password

@@ -1,7 +1,6 @@
 package Application;
 
 import Application.Controller.ChangePasswordController;
-import Application.Controller.ForgetPWController;
 import Application.Database.UserUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,12 +11,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ChangePassWindow {
-    private Stage window;
+    public Stage window;
+    private Main app;
     private UserUtils uu;
-
-    public ChangePassWindow(UserUtils uu) {
-        this.uu = uu;
-    }
 
     public void display() throws IOException {
         window = new Stage();
@@ -37,4 +33,21 @@ public class ChangePassWindow {
 
         window.showAndWait();
     }
+
+    public void close() {
+        window.close();
+    }
+
+    public void setApp(Main app, UserUtils uu) {
+        this.app = app;
+        this.uu = uu;
+    }
+
+    public Main getApp() {
+        return app;
+    }
+    public UserUtils getUserUtils() {
+        return uu;
+    }
+
 }

@@ -5,6 +5,7 @@ import Application.Database.UserUtils;
 import Application.ForgetPW;
 import Application.Main;
 import Application.Models.User;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +18,9 @@ import java.util.ResourceBundle;
 public class LoginUiController implements Initializable {
     private Main app;
     private UserUtils uu;
+
+    @FXML
+    private Label pwLabel;
 
     @FXML
     private TextField tfUsername;
@@ -36,19 +40,27 @@ public class LoginUiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // setup the 2 password fields:
         pfPW.textProperty().bindBidirectional(tfShowPW.textProperty());
-        tfShowPW.setVisible(false);
+        showPassword();
 
+        btnLogin.setDefaultButton(true);
+
+        Platform.runLater(() -> {
+            tfUsername.requestFocus();
+        });
     }
 
-    public void showPassword(ActionEvent actionEvent) {
+    @FXML
+    public void showPassword() {
         if (cbShowPW.isSelected()) {
             pfPW.setVisible(false);
             tfShowPW.setVisible(true);
+            pwLabel.setLabelFor(tfShowPW);
         } else {
             pfPW.setVisible(true);
             tfShowPW.setVisible(false);
-
+            pwLabel.setLabelFor(pfPW);
         }
 
     }

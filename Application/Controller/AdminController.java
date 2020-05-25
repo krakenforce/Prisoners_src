@@ -36,8 +36,14 @@ public class AdminController implements Initializable {
     @FXML
     public void changePassword(ActionEvent event) throws IOException {
         //to be coded:
-        ChangePassWindow cPw = new ChangePassWindow(uu);
+        ChangePassWindow cPw = new ChangePassWindow();
+        cPw.setApp(app, uu);
         cPw.display();
+    }
+
+    @FXML
+    public void createNewAccount(ActionEvent event) {
+        // to be coded...
     }
 
     public void logOut(ActionEvent event) {
