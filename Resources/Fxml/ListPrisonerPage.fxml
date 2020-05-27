@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiendat.PrisonManagenmentSystem.Controller.Prisoner.ControllerListPrisoner">
+   <children>
+      <SplitPane dividerPositions="0.5" prefHeight="100.0" prefWidth="900.0">
+         <items>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label text="Crime:">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <JFXComboBox prefWidth="250.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label text="Punishment:">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <JFXComboBox prefWidth="250.0" />
+               </children>
+            </HBox>
+         </items>
+      </SplitPane>
+      <Pagination prefHeight="330.0" prefWidth="900.0" />
+   </children>
+</VBox>

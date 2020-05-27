@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller.AdminController">
+   <children>
+      <SplitPane dividerPositions="0.14858096828046743" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <VBox alignment="TOP_CENTER" fillWidth="false" maxWidth="175.0" minWidth="175.0" prefHeight="300.0" prefWidth="175.0" spacing="5.0" style="-fx-border-color: black; -fx-border-width: 3; -fx-border-insets: 3; -fx-border-radius: 3;">
+               <children>
+                  <AnchorPane prefHeight="76.0" prefWidth="153.0" styleClass="topPane" stylesheets="@style.css">
+                     <children>
+                        <Label layoutX="24.0" layoutY="10.0" prefHeight="57.0" prefWidth="106.0" text="ADMIN PAGE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#addTabPrisoners" prefHeight="70.0" prefWidth="175.0" styleClass="ButtonPane" text="Prisoners" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Photos/Other/11494848241553681873-256.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#addTabOrther" prefHeight="70.0" prefWidth="175.0" styleClass="ButtonPane" text="Add" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Photos/Other/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXButton>
+
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#addAccountManager" prefHeight="70.0" prefWidth="175.0" styleClass="ButtonPane" text="Management" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Photos/Other/id_badge.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btn_Out" buttonType="RAISED" contentDisplay="TOP" onAction="#out" prefHeight="70.0" prefWidth="175.0" styleClass="ButtonPane" text="Others" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Photos/Other/download.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSignOut" onAction="#out" prefHeight="32.0" prefWidth="161.0" styleClass="signOutBtn" text="Sign out" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <JFXTabPane fx:id="tabpane_Admin" prefHeight="777.0" prefWidth="1017.0" tabClosingPolicy="ALL_TABS" />
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiendat.PrisonManagenmentSystem.Controller.Prisoner.ControllerAddPrisoner">
+   <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="182.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="268.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Prisoner's Name:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Gender:" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Phone:" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Date Of Birth:" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Date Of Arrest:" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Crime:" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Punishment:" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="Adress:" GridPane.rowIndex="7">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="State:" GridPane.rowIndex="8">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label text="City:" GridPane.rowIndex="9">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <JFXTextField fx:id="text_PrisonerName" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="text_Phone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextArea fx:id="text_Adress" prefHeight="64.0" prefWidth="268.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <JFXRadioButton fx:id="radio_Male" prefHeight="24.0" prefWidth="58.0" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup></JFXRadioButton>
+                  <JFXRadioButton fx:id="radio_Female" prefHeight="24.0" prefWidth="71.0" text="Female" toggleGroup="$gender" />
+               </children>
+            </HBox>
+            <JFXComboBox fx:id="combo_Punishment" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <JFXComboBox fx:id="combo_State" onAction="#LoadCity" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <JFXComboBox fx:id="combo_City" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <JFXButton alignment="CENTER" contentDisplay="RIGHT" onAction="#SavePrisoner" prefHeight="38.0" prefWidth="148.0" styleClass="confirmBtn" stylesheets="@style.css" text="SAVE" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <JFXDatePicker fx:id="date_DateOfBirth" prefHeight="28.0" prefWidth="273.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <JFXDatePicker fx:id="date_DateOfArrest" prefHeight="28.0" prefWidth="363.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXListView GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+      <VBox alignment="TOP_CENTER">
+         <children>
+            <Pagination fx:id="pagination_Images" prefHeight="400.0" prefWidth="400.0" />
+            <JFXButton onAction="#UploadImages" text="Upload Images" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="10.0" right="10.0" top="30.0" />
+   </padding>
+</HBox>

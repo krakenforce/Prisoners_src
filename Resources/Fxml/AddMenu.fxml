@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="55.0" prefWidth="685.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tiendat.PrisonManagenmentSystem.Controller.Orther.ControllerOrther">
+   <children>
+      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="728.0" spacing="10.0">
+         <children>
+            <JFXButton onAction="#addTabCity" prefHeight="25.0" prefWidth="97.0" styleClass="ButtonPane" stylesheets="@style.css" text="Add City" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+            <JFXButton onAction="#addTabState" prefHeight="25.0" prefWidth="88.0" styleClass="ButtonPane" stylesheets="@style.css" text="Add State" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+            <JFXButton onAction="#addTabUser" prefHeight="25.0" prefWidth="87.0" styleClass="ButtonPane" stylesheets="@style.css" text="Add User" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+            <JFXButton onAction="#addTabCrime" prefHeight="25.0" prefWidth="95.0" styleClass="ButtonPane" stylesheets="@style.css" text="Add Crime" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+            <JFXButton onAction="#addTabPunisher" prefHeight="29.0" prefWidth="142.0" styleClass="ButtonPane" stylesheets="@style.css" text="Add Punishment" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <JFXTabPane fx:id="tabpane_Orther" tabClosingPolicy="ALL_TABS" />
+   </children>
+</VBox>
